@@ -16,10 +16,28 @@ router.get('/', function(req, res, next) {
   // 2. the call back to run when request is fulfilled
   request.get(nowPlayingUrl, (error, response, movieData) => {
     const parsedData = JSON.parse(movieData);
-    console.log(parsedData);
+    // console.log(parsedData);
     res.render('index', { parsedData: parsedData.results, imageBaseUrl });
   });
   // res.render('index', { title: 'Express' });
+});
+
+// anytime you see a colon (:) in an epress router, that means it's a wildcard
+router.get('/movie/:id', (req, res, next)=> {
+  // res.json(req.params);
+  const movieId = req.params.id;
+  // console.log(movieId);
+  const thisMovieUrl = `${apiBaseUrl}/movie/${movieId}?api_key=${apiKey}`;
+  request.get(thisMovieUrl, (error, response, movieData) => {
+    const parsedData = JSON.parse(movieData);
+    console.log(parsedData);
+    // console.log(thisMovieUrl);
+    res.render('single-movie', {
+      parsedData, imageBaseUrl
+    });
+
+    // res.render('single-movie', {});
+  });
 });
 
 module.exports = router;
