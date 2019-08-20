@@ -1,11 +1,28 @@
+html {
+	background-color: black;
+}
+
 body {
-	padding: 50px;
+	background-color: rgb(0, 138, 85);
+	padding: 100px;
 	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-	background-image: linear-gradient(to bottom right, rgb(226, 169, 214), rgb(238, 238, 238) , rgb(192, 192, 231));
+}
+
+form {
+	background-color: lightpink;
+	padding: 20px;
+	border-radius: 50px;
+}
+
+section {
+	background-image: linear-gradient(to bottom right, rgb(169, 226, 186), rgb(238, 238, 238) , rgb(146, 209, 173));
+	border-radius: 50px;
+	height: 100vh;
+	padding-top: 100px;
 }
 
 h1 {
-	color: navy;
+	color: rgb(203, 203, 240);
 }
 
 .poster > a > img {
